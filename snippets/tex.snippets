@@ -43,32 +43,6 @@ snippet center center environment
 	\\begin{center}
 		${0:${VISUAL}}
 	\\end{center}
-# Gather(ed)
-snippet gat gather(ed) environment
-	\\begin{gather${1:ed}}
-		${0:${VISUAL}}
-	\\end{gather$1}
-# Equation
-snippet eq equation environment
-	\\begin{equation}
-		${0:${VISUAL}}
-	\\end{equation}
-# Equation
-snippet eql Labeled equation environment
-	\\begin{equation}
-		\\label{eq:${2}}
-	${0:${VISUAL}}
-	\\end{equation}
-# Equation
-snippet eq* unnumbered equation environment
-	\\begin{equation*}
-		${0:${VISUAL}}
-	\\end{equation*}
-# Equation array
-snippet eqnarray eqnarray environment
-	\\begin{eqnarray}
-		${0:${VISUAL}}
-	\\end{eqnarray}
 # Label
 snippet lab \label
 	\\label{${1:eq:}${2:fig:}${3:tab:}${0}}
@@ -201,15 +175,6 @@ snippet ms mathscr
 #misc
 snippet ft \footnote
 	\\footnote{${1:${VISUAL:text}}}${0}
-snippet fig figure environment (includegraphics)
-	\\begin{figure}
-	\\begin{center}
-		\\includegraphics[scale=${1}]{Figures/${2}}
-	\\end{center}
-	\\caption{${3}}
-	\\label{fig:${4}}
-	\\end{figure}
-	${0}
 snippet tikz figure environment (tikzpicture)
 	\\begin{figure}[htpb]
 	\\begin{center}
@@ -282,21 +247,6 @@ snippet multicol2 two-column environment with multicol
 		\columnbreak
 		${0}
 	\\end{multicols}
-snippet \{ \{ \}
-	\\{ ${0} \\}
-#delimiter
-snippet lr left right
-	\\left${1} ${0:${VISUAL}} \\right$1
-snippet lr( left( right)
-	\\left( ${0:${VISUAL}} \\right)
-snippet lr| left| right|
-	\\left| ${0:${VISUAL}} \\right|
-snippet lr{ left\{ right\}
-	\\left\\{ ${0:${VISUAL}} \\right\\}
-snippet lr[ left[ right]
-	\\left[ ${0:${VISUAL}} \\right]
-snippet lra langle rangle
-	\\langle ${0:${VISUAL}} \\rangle
 # Code listings
 snippet lst
 	\\begin{listing}[language=${1:language}]
