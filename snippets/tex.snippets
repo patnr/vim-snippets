@@ -1,11 +1,5 @@
 #version 1
 #PREAMBLE
-#documentclass without options
-snippet dcl \documentclass{}
-	\\documentclass{${1:class}} ${0}
-#documentclass with options
-snippet dclo \documentclass[]{}
-	\\documentclass[${1:options}]{${2:class}} ${0}
 #newcommand
 snippet nc \newcommand
 	\\newcommand{\\${1:cmd}}[${2:opt}]{${3:realcmd}} ${0}
@@ -25,45 +19,9 @@ snippet begin \begin{} ... \end{} block
 	\\begin{${1:env}}
 		${0:${VISUAL}}
 	\\end{$1}
-
-# Maketitle
-snippet mkt maketitle
-	\\maketitle
-	
-# Tabular
-snippet tab tabular (or arbitrary) environment
-	\\begin{${1:tabular}}{${2:c}}
-		${0:${VISUAL}}
-	\\end{$1}
-snippet thm thm (or arbitrary) environment with optional argument
-	\\begin[${1:author}]{${2:thm}}
-		${0:${VISUAL}}
-	\\end{$2}
-snippet center center environment
-	\\begin{center}
-		${0:${VISUAL}}
-	\\end{center}
 # Label
 snippet lab \label
-	\\label{${1:eq:}${2:fig:}${3:tab:}${0}}
-# Enumerate
-snippet enum enumerate environment
-	\\begin{enumerate}
-		\\item ${0}
-	\\end{enumerate}
-snippet enuma enumerate environment
-	\\begin{enumerate}[(a)]
-		\\item ${0}
-	\\end{enumerate}
-snippet enumi enumerate environment
-	\\begin{enumerate}[(i)]
-		\\item ${0}
-	\\end{enumerate}
-# Description
-snippet desc description environment
-	\\begin{description}
-		\\item[${1}] ${0}
-	\\end{description}
+	\\label{eq:${1}}$0
 # Matrix
 snippet mat smart matrix environment
 	\\begin{${1:p/b/v/V/B/small}matrix}
@@ -80,6 +38,7 @@ snippet spl split environment
 	\\begin{split}
 		${0:${VISUAL}}
 	\\end{split}
+
 # Part
 snippet part document \part
 	\\part{${1:part name}} % (fold)%
@@ -134,6 +93,7 @@ snippet subp \subparagraph
 snippet ni \noindent
 	\\noindent
 	${0}
+
 #References
 snippet itd description \item
 	\\item[${1:description}] ${0:item}
@@ -149,6 +109,7 @@ snippet page reference to a page
 	${1:page}~\\pageref{${2}} ${0}
 snippet index \index
 	\\index{${1:index}} ${0}
+
 #Citations
 snippet citen \citen
 	\\citen{${1}} ${0}
@@ -159,22 +120,14 @@ snippet citey \citeyear
 	\\citeyear{${1}} ${0}
 snippet fcite \footcite[]{}
 	\\footcite[${1}]{${2}}${0}
-#Formating text: italic, bold, underline, small capital, emphase ..
+
 #Choosing font
 snippet tsub subscripted text
 	\\textsubscript{${1:${VISUAL:text}}}${0}
 snippet tsup superscripted text
 	\\textsuperscript{${1:${VISUAL:text}}}${0}
-#Math font
-snippet mf mathfrak
-	\\mathfrak{${1:${VISUAL:text}}}${0}
-snippet mc mathcal
-	\\mathcal{${1:${VISUAL:text}}}${0}
-snippet ms mathscr
-	\\mathscr{${1:${VISUAL:text}}}${0}
+
 #misc
-snippet ft \footnote
-	\\footnote{${1:${VISUAL:text}}}${0}
 snippet tikz figure environment (tikzpicture)
 	\\begin{figure}[htpb]
 	\\begin{center}
@@ -186,32 +139,7 @@ snippet tikz figure environment (tikzpicture)
 	\\label{fig:${4}}
 	\\end{figure}
 	${0}
-snippet subfig subfigure environment
-	\\begin{subfigure}[${1}]{${2:\\textwidth}}
-	\\begin{center}
-		${3}
-	\\end{center}
-	\\caption{${4}}
-	\\label{fig:${5}}
-	\\end{subfigure}
-	${0}
-snippet tikzcd tikzcd environment in equation
-	\\begin{equation}
-	\\begin{tikzcd}
-		${1}
-	\\end{tikzcd}
-	\\end{equation}
-	${0}
-snippet tikzcd* tikzcd environment in equation*
-	\\begin{equation*}
-	\\begin{tikzcd}
-		${1}
-	\\end{tikzcd}
-	\\end{equation*}
-	${0}
-#math
-snippet stackrel \stackrel{}{}
-	\\stackrel{${1:above}}{${2:below}} ${0}
+
 snippet frame frame environment
 	\\begin{frame}[${1:t}]
 		\frametitle{${2:title}}
@@ -247,6 +175,7 @@ snippet multicol2 two-column environment with multicol
 		\columnbreak
 		${0}
 	\\end{multicols}
+
 # Code listings
 snippet lst
 	\\begin{listing}[language=${1:language}]
@@ -257,14 +186,12 @@ snippet lsi
 # Hyperlinks
 snippet url
 	\\url{${1}} ${0}
+
 # URL from Clipboard.
 snippet urlc
 	\\url{`@+`} ${0}
 snippet hrefc
 	\\href{`@+`}{${1}} ${0}
-# enquote from package csquotes
-snippet enq enquote
-	\\enquote{${1:${VISUAL:text}}} ${0}
 
 # Time derivative
 snippet ddt time derivative
